@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:file-list-client": "node dist/file-list-client/server/server.mjs"
+    "serve:ssr:file-list-client": "node dist/file-list-client/server/server.mjs",
+    "prettier": "prettier --write .",
+    "prettier-check": "prettier --check ."
   },
   "private": true,
   "dependencies": {
@@ -39,6 +41,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "3.2.5",
     "typescript": "~5.4.2"
   }
 }
