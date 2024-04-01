@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class TableListComponent implements OnChanges {
   @Input() selectedFileName: string | null = null;
-  @Output() tableSelected = new EventEmitter<Table>(); // Emitting the selected table
+  @Output() tableSelected = new EventEmitter<Table>(); 
   fileTable: FileTable | undefined;
   tables: Table[] = [];
   tablesNew: any[] = [];
@@ -30,7 +30,6 @@ export class TableListComponent implements OnChanges {
   constructor(private fileService: FileService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('the selected file is', this.selectedFileName);
     if (changes['selectedFileName'] && this.selectedFileName) {
       this.fileService.getFiles().subscribe((files) => {
         this.tablesNew = files.filter(
@@ -42,6 +41,6 @@ export class TableListComponent implements OnChanges {
     }
   }
   onSelectTable(table: Table): void {
-    this.tableSelected.emit(table); // Emit the selected table when a table is clicked
+    this.tableSelected.emit(table); 
   }
 }
