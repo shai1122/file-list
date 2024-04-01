@@ -6,7 +6,7 @@ class FileService {
     this.directoryPath = path.join(__dirname, "../", "data");
   }
   async getFiles() {
-    let fileContents = {};
+    let fileContents = [];
     try {
       const files = await fs.readdir(this.directoryPath, {
         withFileTypes: true,
@@ -15,7 +15,10 @@ class FileService {
         if (file.isFile() && path.extname(file.name) === ".json") {
           const filePath = path.join(this.directoryPath, file.name);
           const data = await fs.readFile(filePath, "utf8");
-          fileContents[file.name] = data;
+          fileContents.push({
+            fileName: file.name,
+            tables: JSON.parse(data).tables,
+          });
         }
       }
     } catch (error) {

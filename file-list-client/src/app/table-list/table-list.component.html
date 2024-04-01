@@ -1,6 +1,5 @@
-<ul *ngIf="fileTable?.tables.length; else noTables">
-    <li *ngFor="let table of fileTable.tables" (click)="onSelectTable(table)">
-      {{ table.title }}
-    </li>
-  </ul>
-  
+<ul *ngIf="fileTable?.tables?.length">
+  <li *ngFor="let table of fileTable?.tables" (click)="onSelectTable(table)">
+    {{ table.title }}
+  </li>
+</ul>

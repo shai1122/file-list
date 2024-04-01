@@ -1,10 +1,12 @@
-<!-- src/app/app.component.html -->
 <div class="container">
   <div class="file-list">
     <app-file-list (fileSelected)="onFileSelected($event)"></app-file-list>
   </div>
   <div class="table-list">
-    <app-table-list [selectedFileName]="selectedFileName" (tableSelected)="onTableSelected($event)"></app-table-list>
+    <app-table-list
+      [selectedFileName]="selectedFileName"
+      (tableSelected)="onTableSelected($event)"
+    ></app-table-list>
   </div>
   <div class="table-details">
     <app-table-details [selectedTable]="selectedTable"></app-table-details>
